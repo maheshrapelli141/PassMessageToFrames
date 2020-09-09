@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Post message to Iframe</title>
+	<script src="https://cdn.ethers.io/lib/ethers-5.0.umd.min.js" type="text/javascript">
+</script>
+</head>
+<body>
+	<h2>Wallet Address</h2>
+	<p id="walletAddress"></p>
+	<h3>Private Key</h3>
+	<p id="privateKey"></p>
+
+<iframe src="https://kycdapp.com" title="Post message receiver" height="500px" width="100%" id="cross_domain_page"></iframe>
+<!-- <iframe src="frame.html" title="Post message receiver" height="500px" width="100%" id="cross_domain_page"></iframe> -->
+</body>
+<script type="text/javascript">
+	const privateKey = '0x26dfe99b98515fc4fd53a811b7db194afaaf6d4133aa371e7270b477bc086b07';
+	const wallet = new ethers.Wallet(privateKey);
+	document.getElementById('walletAddress').innerText = wallet.address;
+	document.getElementById('privateKey').innerText = privateKey;
+	setTimeout(() => {
+
+		document.getElementById('cross_domain_page').contentWindow.postMessage(privateKey,'*')
+	},1000)
+
+</script>
+</html>

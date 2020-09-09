@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Frame</title>
+</head>
+<body>
+	<h2>Message</h2>
+<p></p>
+</body>
+<script type="text/javascript">
+	console.log('loaded')
+	 window.addEventListener("message", (event) => {
+	 	console.log({event})
+	 },false)
+</script>
+</html>
